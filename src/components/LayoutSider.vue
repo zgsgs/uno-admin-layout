@@ -31,7 +31,7 @@ const style = computed(() => {
 })
 
 // css
-cssRender('.soybean-admin-layout__sider', {
+cssRender('.uno-admin-layout__sider', {
   position: 'fixed',
   left: 0,
   top: 0,
@@ -43,8 +43,7 @@ cssRender('.soybean-admin-layout__sider', {
 </script>
 
 <template>
-  <aside class="soybean-admin-layout__sider" :style="style">
+  <aside class="uno-admin-layout__sider" :style="style">
     <slot />
   </aside>
 </template>
-<style></style>

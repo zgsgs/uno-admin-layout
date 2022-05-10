@@ -38,7 +38,7 @@ const style = computed(() => {
 })
 
 // css
-cssRender('.soybean-admin-layout__header', {
+cssRender('.uno-admin-layout__header', {
   left: 0,
   top: 0,
   flexShrink: 0,
@@ -49,9 +49,7 @@ cssRender('.soybean-admin-layout__header', {
 </script>
 
 <template>
-  <header class="soybean-admin-layout__header" :style="style">
+  <header class="uno-admin-layout__header" :style="style">
     <slot />
   </header>
 </template>
-<style>
-</style>

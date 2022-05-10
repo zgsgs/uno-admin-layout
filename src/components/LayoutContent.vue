@@ -31,7 +31,7 @@ const style = computed(() => {
 })
 
 // css
-cssRender('.soybean-admin-layout__main', {
+cssRender('.uno-admin-layout__main', {
   flexGrow: 1,
   boxSizing: 'border-box',
   width: '100%',
@@ -40,9 +40,7 @@ cssRender('.soybean-admin-layout__main', {
 </script>
 
 <template>
-  <main :style="style" class="soybean-admin-layout__main">
+  <main :style="style" class="uno-admin-layout__main">
     <slot />
   </main>
 </template>
-<style>
-</style>

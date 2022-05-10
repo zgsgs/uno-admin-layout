@@ -41,7 +41,7 @@ const style = computed(() => {
 })
 
 // css
-cssRender('.soybean-admin-layout__tab', {
+cssRender('.uno-admin-layout__tab', {
   left: 0,
   flexShrink: 0,
   boxSizing: 'border-box',
@@ -51,9 +51,7 @@ cssRender('.soybean-admin-layout__tab', {
 </script>
 
 <template>
-  <div class="soybean-admin-layout__tab" :style="style">
+  <div class="uno-admin-layout__tab" :style="style">
     <slot />
   </div>
 </template>
-<style>
-</style>

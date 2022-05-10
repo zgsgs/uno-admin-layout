@@ -107,7 +107,7 @@ const contentPaddingTop = computed(() => {
 const contentPaddingBottom = computed(() => (props.fixedFooter && props.footerVisible ? props.footerHeight : 0))
 
 // css
-cssRender('.soybean-admin-layout', {
+cssRender('.uno-admin-layout', {
   display: 'flex',
   flexDirection: 'column',
   width: '100%',
@@ -116,7 +116,7 @@ cssRender('.soybean-admin-layout', {
 </script>
 
 <template>
-  <div class="soybean-admin-layout" :style="{ minWidth: minWidth + 'px' }">
+  <div class="uno-admin-layout" :style="{ minWidth: minWidth + 'px' }">
     <layout-header
       v-if="headerVisible"
       v-bind="commonProps"
