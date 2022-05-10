@@ -1,6 +1,6 @@
 {
   "name": "@unonu/uno-admin-layout",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": false,
   "description": "a layout component of admin template, support vue2 and vue3",
   "keywords": [
@@ -28,8 +28,9 @@
     "build": "pnpm type:check && vite build",
     "build:vercel": "cross-env VITE_IS_VERCEL=1 vite build",
     "preview": "vite preview",
-    "publish": "npm publish --access=public",
-    "release": "bumpp package.json packages/*/package.json --commit \"ci: release v%s\" --push --tag && pnpm -r publish --access public",
+    "release": "bumpp package.json --commit \"ci: release v%s\" --push --tag",
+    "publish": "pnpm -r publish --access public",
+    "release:publish": "pnpm  release &&  pnpm publish",
     "type:check": "vue-tsc --noEmit",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.json --max-warnings 0 --fix",
     "lint:fix": "lint-staged",
@@ -45,7 +46,7 @@
     }
   },
   "dependencies": {
-    "@unocss/reset": "^0.33.1",
+    "@unocss/reset": "^0.33.2",
     "colord": "^2.9.2",
     "css-render": "^0.15.9",
     "vue-demi": "^0.12.5"
