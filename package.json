@@ -54,7 +54,7 @@
   "devDependencies": {
     "@commitlint/cli": "16.2.4",
     "@commitlint/config-conventional": "16.2.4",
-    "@vitejs/plugin-vue": "2.3.2",
+    "@vitejs/plugin-vue": "2.3.3",
     "@vue/tsconfig": "0.1.3",
     "@zgsgs/eslint-config": "0.0.7",
     "bumpp": "7.1.1",
