@@ -19,7 +19,7 @@ specifiers:
   typescript: 4.6.4
   unocss: 0.33.2
   unplugin-auto-import: 0.7.1
-  unplugin-vue-components: 0.19.3
+  unplugin-vue-components: 0.19.5
   vite: 2.9.9
   vite-plugin-dts: 1.1.1
   vite-plugin-windicss: 1.8.4
@@ -49,7 +49,7 @@ devDependencies:
   typescript: 4.6.4
   unocss: 0.33.2_vite@2.9.9
   unplugin-auto-import: 0.7.1_vite@2.9.9
-  unplugin-vue-components: 0.19.3_vite@2.9.9+vue@3.2.33
+  unplugin-vue-components: 0.19.5_vite@2.9.9+vue@3.2.33
   vite: 2.9.9
   vite-plugin-dts: 1.1.1_vite@2.9.9
   vite-plugin-windicss: 1.8.4_vite@2.9.9
@@ -2820,7 +2820,7 @@ packages:
     dev: true
 
   /is-extglob/2.1.1:
-    resolution: {integrity: sha512-SbKbANkN603Vi4jEZv49LeVJMn4yGwsbzZworEoyEiutsN3nJYdbO36zfhGJ6QEDpOZIFkDtnq5JRxmvl3jsoQ==}
+    resolution: {integrity: sha1-qIwCU1eR8C7TfHahueqXc8gz+MI=}
     engines: {node: '>=0.10.0'}
     dev: true
 
@@ -3280,7 +3280,7 @@ packages:
     dev: true
 
   /ms/2.0.0:
-    resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
+    resolution: {integrity: sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=}
     dev: true
 
   /ms/2.1.2:
@@ -4319,8 +4319,8 @@ packages:
       - webpack
     dev: true
 
-  /unplugin-vue-components/0.19.3_vite@2.9.9+vue@3.2.33:
-    resolution: {integrity: sha512-z/kpYJnqrJuWglDNs7fy0YRHr41oLc07y2TkP3by6DqPb1GG9xGC9SFigeFwd4J7GVTqyFVsnjoeup7uK7I2dA==}
+  /unplugin-vue-components/0.19.5_vite@2.9.9+vue@3.2.33:
+    resolution: {integrity: sha512-cIC+PdQEXmG+B1gmZGk4hws2xP+00C6pg3FD6ixEgRyW+WF+QXQW/60pc+hUhtDYs1PFE+23K3NY7yvYTnDDTA==}
     engines: {node: '>=14'}
     peerDependencies:
       '@babel/parser': ^7.15.8
