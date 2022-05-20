@@ -1,5 +1,5 @@
 {
-  "name": "@unonu/uno-admin-layout",
+  "name": "@unonu/admin-layout",
   "version": "0.0.1",
   "private": false,
   "description": "a layout component of admin template, support vue2 and vue3",
