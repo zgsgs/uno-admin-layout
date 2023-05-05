@@ -1,6 +1,17 @@
 <script setup lang="ts">
 import { computed } from 'vue-demi'
-import { useCssRender } from '@/hooks'
+import { CssRender } from 'css-render'
+
+const props = withDefaults(defineProps<Props>(), {
+  zIndex: 1002,
+  collapse: false,
+  width: 200,
+  paddingTop: 0,
+  transitionDuration: 300,
+  transitionTimingFunction: 'ease-in-out',
+})
+
+defineOptions({ name: 'LayoutSider' })
 
 interface Props {
   /** fixed布局的层级 */
@@ -15,23 +26,14 @@ interface Props {
   transitionTimingFunction?: string
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  zIndex: 1002,
-  width: 200,
-  paddingTop: 0,
-  transitionDuration: 300,
-  transitionTimingFunction: 'ease-in-out',
-})
-
-const { cssRender } = useCssRender()
-
 const style = computed(() => {
   const { zIndex, width, paddingTop, transitionDuration, transitionTimingFunction } = props
-  return `z-index: ${zIndex};width: ${width}px;padding-top: ${paddingTop}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
+  return `z-index:${zIndex};width:${width}px;padding-top:${paddingTop}px;transition-duration:${transitionDuration}ms;transition-timing-function:${transitionTimingFunction};`
 })
 
 // css
-cssRender('.uno-admin-layout__sider', {
+const { c } = CssRender()
+const cStyle = c('.admin-layout__sider', {
   position: 'fixed',
   left: 0,
   top: 0,
@@ -40,10 +42,12 @@ cssRender('.uno-admin-layout__sider', {
   height: '100%',
   transitionProperty: 'all',
 })
+cStyle.render()
+cStyle.mount()
 </script>
 
 <template>
-  <aside class="uno-admin-layout__sider" :style="style">
+  <aside class="admin-layout__sider" :style="style">
     <slot />
   </aside>
 </template>

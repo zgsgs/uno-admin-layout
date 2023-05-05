@@ -1,12 +1,26 @@
 <script setup lang="ts">
 import { computed } from 'vue-demi'
-import { useCssRender } from '@/hooks'
+import { CssRender } from 'css-render'
+
+const props = withDefaults(defineProps<Props>(), {
+  fixed: true,
+  zIndex: 1001,
+  minWidth: 1200,
+  height: 56,
+  paddingLeft: 0,
+  transitionDuration: 300,
+  transitionTimingFunction: 'ease-in-out',
+})
+
+defineOptions({ name: 'LayoutHeader' })
 
 interface Props {
   /** 开启fixed布局 */
   fixed?: boolean
   /** fixed布局的层级 */
   zIndex?: number
+  /** 是否启用最小宽度的布局 */
+  useMinWidthLayout?: boolean
   /** 最小宽度 */
   minWidth?: number
   /** 高度 */
@@ -19,26 +33,16 @@ interface Props {
   transitionTimingFunction?: string
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  fixed: true,
-  zIndex: 1001,
-  minWidth: 1200,
-  height: 56,
-  paddingLeft: 0,
-  transitionDuration: 300,
-  transitionTimingFunction: 'ease-in-out',
-})
-
-const { cssRender } = useCssRender()
-
 const style = computed(() => {
   const { fixed, zIndex, minWidth, height, paddingLeft, transitionDuration, transitionTimingFunction } = props
   const position = fixed ? 'fixed' : 'static'
-  return `position: ${position};z-index: ${zIndex};min-width: ${minWidth}px;height: ${height}px;padding-left: ${paddingLeft}px;transition-duration: ${transitionDuration}ms;transition-timing-function: ${transitionTimingFunction};`
+  const minWidthStyle = props.useMinWidthLayout ? `min-width:${minWidth}px;` : ''
+  return `position:${position};z-index:${zIndex};${minWidthStyle}height:${height}px;padding-left:${paddingLeft}px;transition-duration:${transitionDuration}ms;transition-timing-function:${transitionTimingFunction};`
 })
 
 // css
-cssRender('.uno-admin-layout__header', {
+const { c } = CssRender()
+const cStyle = c('.admin-layout__header', {
   left: 0,
   top: 0,
   flexShrink: 0,
@@ -46,10 +50,12 @@ cssRender('.uno-admin-layout__header', {
   width: '100%',
   transitionProperty: 'padding-left',
 })
+cStyle.render()
+cStyle.mount()
 </script>
 
 <template>
-  <header class="uno-admin-layout__header" :style="style">
+  <header class="admin-layout__header" :style="style">
     <slot />
   </header>
 </template>

@@ -1,10 +1,9 @@
 import { defineConfig, loadEnv } from 'vite'
-import { resolvePath, setupVitePlugins, viteDefine } from './internal/vite'
+import { setupVitePlugins, usePath } from './build'
 
 export default defineConfig((configEnv) => {
-  // const viteEnv = loadEnv(configEnv.mode, process.cwd())
   const viteEnv = loadEnv(configEnv.mode, `.env.${configEnv.mode}`)
-  const vitePath = resolvePath('./', import.meta.url)
+  const { root, src } = usePath()
 
   const isVercel = viteEnv.VITE_IS_VERCEL === '1'
 
@@ -12,11 +11,10 @@ export default defineConfig((configEnv) => {
     base: viteEnv.VITE_BASE_URL,
     resolve: {
       alias: {
-        '~': vitePath.root,
-        '@': vitePath.src,
+        '~': root,
+        '@': src,
       },
     },
-    define: viteDefine,
     plugins: setupVitePlugins(),
     optimizeDeps: {
       exclude: ['vue-demi'],

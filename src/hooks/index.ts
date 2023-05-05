@@ -1,7 +1,30 @@
 import { computed, onUnmounted, ref, watch } from 'vue-demi'
 import type { ComputedRef, Ref } from 'vue-demi'
-import { CssRender } from 'css-render'
-import type { CNode, CNodeChildren, CProperties, CSelector } from 'css-render'
+
+export function useBoolean(initValue = false) {
+  const bool = ref(initValue)
+
+  function setBool(value: boolean) {
+    bool.value = value
+  }
+  function setTrue() {
+    setBool(true)
+  }
+  function setFalse() {
+    setBool(false)
+  }
+  function toggle() {
+    setBool(!bool.value)
+  }
+
+  return {
+    bool,
+    setBool,
+    setTrue,
+    setFalse,
+    toggle,
+  }
+}
 
 /**
  * 使用了固定定位的布局元素添加translateX
@@ -10,6 +33,9 @@ import type { CNode, CNodeChildren, CProperties, CSelector } from 'css-render'
 export function useFixedTransformStyle(isFixed: Ref<boolean> | ComputedRef<boolean>) {
   const scrollLeft = ref(0)
   const transformStyle = computed(() => `transform: translateX(${-scrollLeft.value}px);`)
+
+  /** 是否初始化过 */
+  let isInit = false
 
   function setScrollLeft(sLeft: number) {
     scrollLeft.value = sLeft
@@ -27,20 +53,22 @@ export function useFixedTransformStyle(isFixed: Ref<boolean> | ComputedRef<boole
   }
 
   function removeScrollEventListener() {
+    if (!isInit)
+      return
     document.removeEventListener('scroll', scrollHandler)
   }
 
   function init() {
     initScrollLeft()
     addScrollEventListener()
+    isInit = true
   }
 
   watch(
     isFixed,
-    (newValue: boolean) => {
+    (newValue) => {
       if (newValue)
         init()
-
       else
         removeScrollEventListener()
     },
@@ -52,25 +80,4 @@ export function useFixedTransformStyle(isFixed: Ref<boolean> | ComputedRef<boole
   })
 
   return transformStyle
-}
-
-/** 使用js渲染css */
-export function useCssRender() {
-  const { c } = CssRender()
-
-  let style: CNode
-
-  function cssRender(selector: CSelector, props: CProperties, children: CNodeChildren = []) {
-    style = c(selector, props, children)
-    style.render()
-    style.mount()
-  }
-
-  onUnmounted(() => {
-    style?.unmount()
-  })
-
-  return {
-    cssRender,
-  }
 }
