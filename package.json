@@ -1,6 +1,6 @@
 {
   "name": "@unonu/admin-layout",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "description": "a layout component of admin template, support vue2 and vue3",
   "author": "zgsgs (2087108700@qq.com)",
