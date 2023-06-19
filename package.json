@@ -54,7 +54,7 @@
   "dependencies": {
     "@unocss/reset": "^0.45.6",
     "colord": "^2.9.3",
-    "css-render": "0.15.10",
+    "css-render": "0.15.12",
     "vue-demi": "^0.13.7"
   },
   "devDependencies": {
