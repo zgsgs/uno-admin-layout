@@ -58,7 +58,7 @@
     "vue-demi": "^0.13.7"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.26.3",
+    "@antfu/eslint-config": "^0.43.0",
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
     "@vitejs/plugin-vue": "^3.0.3",
